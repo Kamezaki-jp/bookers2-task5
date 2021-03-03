@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    @users = @users.where('name LIKE ?', "%#{params[:search]}%") if params[:search].present?
     @user = current_user
     @book = Book.new
     @books = Book.all
