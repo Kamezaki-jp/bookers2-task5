@@ -53,7 +53,7 @@ class SearchesController < ApplicationController
         when 'backward'
           backward(model, content)
         when 'parcial'
-         parcial(model,content)
+         parcial(model, content)
       end
     end
 end
