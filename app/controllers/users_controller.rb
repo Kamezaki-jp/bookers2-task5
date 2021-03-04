@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-    @users = @users.where('name LIKE ?', "%#{params[:search]}%") if params[:search].present?
     @user = current_user
     @book = Book.new
     @books = Book.all
@@ -21,7 +20,7 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
-  
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -31,11 +30,11 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  
+
   private
-  
+
     def user_params
       params.require(:user).permit(:name,:introduction, :profile_image)
     end
-    
+
 end

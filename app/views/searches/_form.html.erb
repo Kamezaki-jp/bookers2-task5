@@ -1,8 +1,8 @@
 <% if user_signed_in? %>
     <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.text_field 'search[content]' %>
-      <%= select_tag 'search[model]', options_for_select({ "User" => "user", "Book" => "book" }) %>
-      <%= select_tag 'search[method]', options_for_select({ "完全一致" => "match", "部分一致" => "partial", "前方一致" => "forward", "後方一致" => "backward" }) %>
+      <%= f.text_field 'content' %>
+      <%= select_tag 'model',  options_for_select({ "User" => "user", "Book" => "book" }) %>
+      <%= select_tag 'method', options_for_select({ "完全一致" => "perfect", "部分一致" => "partial", "前方一致" => "forward", "後方一致" => "backward" }) %>
       <%= submit_tag '検索', class: "btn btn-sm btn-primary" %>
     <% end %>
 <% end %>
